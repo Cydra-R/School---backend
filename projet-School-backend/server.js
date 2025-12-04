@@ -1,24 +1,12 @@
-// Server entry point
-require('dotenv').config();
-const app = require('./app');
-const connectDB = require('./config/db');
-const env = require('./config/env');
+import app from './app.js';
+import { config } from './config/config.js';
+import { connectDB } from './config/database.js';
 
-const PORT = env.PORT;
+const PORT = config.port || 3000;
 
-const startServer = async () => {
-  try {
-    // Connect to MongoDB
-    await connectDB();
-
-    // Start listening
-    app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}`);
-    });
-  } catch (error) {
-    console.error('Failed to start server:', error.message);
-    process.exit(1);
-  }
-};
-
-startServer();
+// Connect to MongoDB then start server
+connectDB().then(() => {
+  app.listen(PORT, () => {
+    console.log(`✅ Server running on http://localhost:3000`);
+  });
+});
