@@ -1,5 +1,6 @@
 import express from 'express';
-import Teacher from '../models/Teacher.js';
+import Teacher from '../models/Teachers.js';
+import Teachers from '../models/Teachers.js';
 
 const router = express.Router();
 
@@ -53,6 +54,5 @@ router.delete('/:id', async (req,res) =>{
     }
 });
 
-module.exports = router;
 
-
+export default router;

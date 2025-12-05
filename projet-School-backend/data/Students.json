@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Alice Dupont",
+    "email": "alice.dupont@student.com",
+    "age": 20,
+    "modules": []
+  },
+  {
+    "name": "Bob Martin",
+    "email": "bob.martin@student.com",
+    "age": 22,
+    "modules": []
+  },
+  {
+    "name": "Charlie Blanc",
+    "email": "charlie.blanc@student.com",
+    "age": 21,
+    "modules": []
+  },
+  {
+    "name": "Diana Lopez",
+    "email": "diana.lopez@student.com",
+    "age": 19,
+    "modules": []
+  },
+  {
+    "name": "Ethan Brown",
+    "email": "ethan.brown@student.com",
+    "age": 23,
+    "modules": []
+  },
+  {
+    "name": "Fiona Green",
+    "email": "fiona.green@student.com",
+    "age": 20,
+    "modules": []
+  }
+]

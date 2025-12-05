@@ -1,0 +1,39 @@
+[
+ {
+  "code": "CS101",
+  "title": "Introduction to Programming",
+  "Credits": 4,
+  "description": "Basic programming concepts using JavaScript."
+},
+ {
+  "code": "MATH101",
+  "title": "Calculus I",
+  "Credits": 3,
+  
+  "description": "Introduction to differential and integral calculus."
+},
+ {
+  "code": "PHYS101",
+  "title": "General Physics",
+  "Credits": 4,
+  "description": "Fundamental principles of mechanics, waves, and thermodynamics."
+},
+{
+  "title": "Database Systems",
+  "code": "CS205",
+  "Credits": 5,
+  "Description": "Covers relational databases, SQL, and normalization."
+},
+{
+  "title": "Web Development",
+  "code": "CS301",
+  "Credits": 6,
+  "Description": "Focuses on front-end and back-end web development using modern frameworks."
+},
+{
+  "title": "Linear Algebra",
+  "code": "MATH201",
+  "Credits": 4,
+  "Description": "Covers vector spaces, matrices, determinants, and eigenvalues."
+}
+]
