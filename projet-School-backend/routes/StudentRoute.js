@@ -17,16 +17,26 @@ router.post('/',async (req , res) => {
     }
 });
 
-// Get student by name 
-router.get('/:name', async (req,res) =>{
+// Get all students
+router.get('/', async (req, res) => {
     try {
-        const student = await Student.findByName(req.params.id).populate('courses');
+        const students = await Student.find().populate('courses');
+        res.status(200).json(students);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
+
+// Get student by ID
+router.get('/:id', async (req, res) => {
+    try {
+        const student = await Student.findById(req.params.id).populate('courses');
         if (!student) {
-            return res.status(404).json({message : 'Student not found'});
-        }   
+            return res.status(404).json({ message: 'Student not found' });
+        }
         res.status(200).json(student);
     } catch (error) {
-        res.status(500).json({message : error.message});    
+        res.status(500).json({ message: error.message });
     }
 });
 
@@ -56,4 +66,17 @@ router.delete('/:id', async (req,res) =>{
     }
 });
 
-module.exports = router;
+router.get('/age', async (req, res) => {
+    try {
+        const totalStudents = await Student.countDocuments();
+        const res_data = {
+            totalStudents,
+            timestamp: new Date()
+        };
+        res.status(200).json(res_data);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
+
+export default router;
