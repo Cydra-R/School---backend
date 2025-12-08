@@ -1,5 +1,6 @@
 import express from 'express';
-import Teacher from '../models/Teacher.js';
+import Teacher from '../models/Teachers.js';
+import Teachers from '../models/Teachers.js';
 
 const router = express.Router();
 
@@ -63,6 +64,7 @@ router.delete('/:id', async (req,res) =>{
     }
 });
 
+<<<<<<< HEAD
 // Get teachers grouped by specialty with course count
 router.get('/specialty', async (req, res) => {
     try {
@@ -113,4 +115,7 @@ router.get('/specialty', async (req, res) => {
 
 export default router;
 
+=======
+>>>>>>> origin/main
 
+export default router;

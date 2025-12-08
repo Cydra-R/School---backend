@@ -1,35 +1,20 @@
-// Express app setup
-const express = require('express');
-const cors = require('cors');
-const morgan = require('morgan');
-const errorHandler = require('./middlewares/errorHandler');
-const routes = require('./routes');
+import express from 'express';
+import { connectDB } from '../config/database.js';
+import studentRouter from './routes/StudentRoute.js';
+import teacherRouter from './routes/TeacherRoute.js';
+import moduleRouter from './routes/ModuleRoute.js';
 
 const app = express();
-
-// Middlewares
-app.use(cors());
-app.use(morgan('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
-// Routes
-app.use('/api', routes);
+connectDB(); // connects to your 'school' DB
 
-// Health check endpoint
-app.get('/health', (req, res) => {
-  res.status(200).json({ status: 'OK', message: 'Server is running' });
+app.use('/students', studentRouter);
+app.use('/teachers', teacherRouter);
+app.use('/modules', moduleRouter);
+
+app.listen(3000, () => console.log('Server running on http://localhost:3000'));
+export default app;
+app.get('/', (req, res) => {
+  res.send('API is running');
 });
-
-// 404 handler
-app.use((req, res) => {
-  res.status(404).json({
-    success: false,
-    message: 'Route not found',
-  });
-});
-
-// Error handler middleware
-app.use(errorHandler);
-
-module.exports = app;

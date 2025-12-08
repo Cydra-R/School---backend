@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Mathematics I",
+    "code": "MATH101",
+    "description": "Introduction to calculus and linear algebra",
+    "credits": 5
+  },
+  {
+    "name": "Physics I",
+    "code": "PHYS101",
+    "description": "Classical mechanics and thermodynamics",
+    "credits": 4
+  },
+  {
+    "name": "Computer Science I",
+    "code": "CS101",
+    "description": "Programming fundamentals with JavaScript",
+    "credits": 6
+  },
+  {
+    "name": "Database Systems",
+    "code": "CS201",
+    "description": "Introduction to MongoDB and SQL",
+    "credits": 5
+  },
+  {
+    "name": "Web Development",
+    "code": "WEB101",
+    "description": "Full-stack development with Node.js and Express",
+    "credits": 6
+  }
+]
