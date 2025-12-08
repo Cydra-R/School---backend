@@ -1,6 +1,5 @@
 import express from 'express';
 import Teacher from '../models/Teachers.js';
-import Teachers from '../models/Teachers.js';
 
 const router = express.Router();
 
@@ -63,6 +62,52 @@ router.delete('/:id', async (req,res) =>{
         res.status(500).json({message : error.message});
     }
 });
+router.get('/specialty', async (req, res) => {
+    try {
+        const teachersBySpecialty = await Teacher.aggregate([
+
+            // Group by specialty
+            {
+                $group: {
+                    _id: {
+                        $ifNull: ["$specialty", "Unknown"]
+                    },
+                    teacherCount: { $sum: 1 },
+                    teachers: {
+                        $push: {
+                            name: "$name",
+                            email: "$email"
+                        }
+                    }
+                }
+            },
+
+            // Sort groups by number of teachers
+            { $sort: { teacherCount: -1 } },
+
+            // Optional: sort teachers inside each group
+            {
+                $project: {
+                    specialty: "$_id",
+                    teacherCount: 1,
+                    teachers: {
+                        $sortArray: {
+                            input: "$teachers",
+                            sortBy: { name: 1 }
+                        }
+                    },
+                    _id: 0
+                }
+            }
+        ]);
+
+        res.status(200).json(teachersBySpecialty);
+
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
+
 
 
 export default router;
