@@ -6,6 +6,6 @@ const PORT = 3000;
 
 connectDB().then(() => {
   app.listen(PORT, () => {
-    console.log(`✅ Serveur démarré sur http://localhost:3000`);
+    console.log(` Serveur démarré sur http://localhost:3000`);
   });
 });
