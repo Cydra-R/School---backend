@@ -44,8 +44,8 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// GET /students/analytics/grades - aggregate students by grade
-router.get('/analytics/grades', async (req, res) => {
+// GET /students/grades - aggregate students by grade
+router.get('/', async (req, res) => {
   try {
     const gradeStats = await Student.aggregate([
       {
